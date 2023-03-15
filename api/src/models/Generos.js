@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('generos', {
+  sequelize.define('Genero', {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -14,5 +14,5 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true,
     }
-  })
+  },{timestamps: false})
 }
