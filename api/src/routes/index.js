@@ -1,24 +1,21 @@
 const { Router } = require('express');
-const {API_KEY} = process.env;
-const axios = require('express')
+const router = Router();
+const morgan = require('morgan');
+const express = require('express');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-
-
-const router = Router();
+const videogamesRouter = require('./videogamesRouter');
+const generosRouter = require('./generosRouter');
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+router.use(express.json());
+router.use(morgan('dev')); 
 
-router.get('/get', async (req, res) => {
-
-    try {
-        const allCharacters = await axios(`https://api.rawg.io/api/games?key=27f8cfa1683d4226939e9799677d7b15`);
-          return res.json(allCharacters);
-    } catch (error) {
-          return res.json(error);
-        }
-})
+router.get('/videogames/name', videogamesRouter);
+// router.get('/videogames/:idVideoGame', videogamesRouter);
+// router.post('/videogames', videogamesRouter);
+// router.get('/genres', generosRouter);
 
 
 module.exports = router;
