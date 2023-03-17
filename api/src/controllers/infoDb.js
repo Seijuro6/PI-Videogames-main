@@ -1,4 +1,5 @@
 const { Videogame, Genero } = require('../db');
+const axios = require('axios');
 
 const gamesDb = async () => {
     return await Videogame.findAll({
