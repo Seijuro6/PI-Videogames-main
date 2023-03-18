@@ -19,5 +19,9 @@ const gamesApi = async () =>{
     return info;
 }
 
+const gamesid = async (id) =>{
+    const url = `https://api.rawg.io/api/games/?key=${API_KEY}`
+    const idGames = await axios.get(url);
 
-module.exports = gamesApi;
+}
+module.exports = {gamesApi};

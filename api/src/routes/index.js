@@ -4,7 +4,8 @@ const morgan = require('morgan');
 const express = require('express');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-const {getAllVideogames} = require('../controllers/index.js');
+const {getAllVideogames, getGeneros} = require('../controllers/index.js');
+const {API_KEY} = process.env;
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -27,10 +28,21 @@ router.get('/videogames', async (req, res)=>{
         res.status(404).json({error: error.message})
     }
 })
-// router.get('/videogames/name', vidzaeogamesRouter);
+
+router.get('/genres', async(req,res) => {
+  try {
+    let genres = await getGeneros();
+    res.status(200).send(genres);
+  } catch (error) {
+    res.status(404).json({error: error.message})
+  }
+})
+
+
+
 // router.get('/videogames/:idVideoGame', videogamesRouter);
 // router.post('/videogames', videogamesRouter);
-// router.get('/genres', generosRouter);
+
 
 
 module.exports = router;

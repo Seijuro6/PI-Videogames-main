@@ -11,5 +11,8 @@ const gamesDb = async () => {
     }); 
 }
 
+const genresDb = async () => {
+    return await Genero.findAll()
+}
 
-module.exports = gamesDb;
+module.exports = {gamesDb, genresDb};
