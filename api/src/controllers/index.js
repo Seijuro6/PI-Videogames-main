@@ -1,40 +1,31 @@
 const axios = require('axios');
-const {gamesApi} = require('./infoApi')
-const {gamesDb, genresDb} = require('./infoDb')
+const { gamesApi } = require('./infoApi')
+const { gamesDb, genresDb, gamesCreateDb } = require('./infoDb')
 
 
-const  getAllVideogames = async () => {
-    const infoApi = await gamesApi();
-    const infoDb = await gamesDb();
+const getAllVideogames = async (idVideogame) => {
+    const infoApi = await gamesApi(idVideogame);
+    const infoDb = await gamesDb(idVideogame);
     const allVideogames = infoApi.concat(infoDb);
+    if (allVideogames == 0){
+        throw Error(error )
+    }
     return allVideogames;
 }
 
-const getVideogamesById = () => {
-
-}
-const getGeneros = async() => {
+const getGeneros = async () => {
     const infoApi = await genresDb();
     return infoApi;
-   
-    
 }
 
-const postVideogame = () => {
-    const newVideogame = {
-        nombre,
-        descripción,
-        plataformas,
-        imagen,
-        fechaDeLanzamiento,
-        rating
-    }
-    .push
+const postVideogames = async (body) => {
+    const postDb = await gamesCreateDb(body);
+    return postDb
+
 }
 
 module.exports = {
     getAllVideogames,
-    getVideogamesById,
     getGeneros,
-    postVideogame,
+    postVideogames,
 }
