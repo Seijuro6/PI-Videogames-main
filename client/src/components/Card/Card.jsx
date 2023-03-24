@@ -1,7 +1,11 @@
-const Card = () =>{
+import style from './Card.module.css'
+
+const Card = (props) =>{
     return(
-        <div>
-            <p>Este componnte debe mostra... la info de cada usuario mapeado, pero ademas darnos un link para ir al detalle del usuario en cuestion </p>
+        <div className={style.card}>
+           UNA CARD
         </div>
     )
 }
+
+export default Card  

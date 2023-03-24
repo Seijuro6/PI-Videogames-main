@@ -1,9 +1,20 @@
+import Card from '../Card/Card'
+import style from './CardsContainer.module.css'
+
 const CardsContainer = () => {
+    const users = []
+
+    // const videogames = useSelector(state=>state.videogames)
     return(
-        <div>
-            <p>
-                este componente debe tomar un arrya de ususarion, y por cada usuario, renderizar un componente Card
-            </p>
+        <div className={style.container}>
+            {users.map(user =>{
+                return <Card 
+                    Id = {user.id}
+                    name = {user.name}
+                    phone = {user.phone}
+                    email = {user.email}
+                />
+            })}
         </div>
     )
 }
