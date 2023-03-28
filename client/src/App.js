@@ -1,6 +1,6 @@
 import { Route, useLocation } from "react-router";
 import NavBar from "./components/NavBar/NavBar";
-import {Home, Landing, Detail, Form} from "./views";
+import {Home, Landing, Detail, Form} from "./components";
 
 
 function App() {

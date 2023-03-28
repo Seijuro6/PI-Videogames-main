@@ -1,9 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App';
-
-//*Routing
-import store from './redux/store/index';
+import store from '../src/store/index';
 import {BrowserRouter} from 'react-router-dom'
 import { Provider } from 'react-redux';
 
